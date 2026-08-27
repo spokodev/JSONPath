@@ -195,7 +195,8 @@ evaluate method (as the first argument) include:
   to be returned within results.
 - ***parentProperty*** (**default: null**) - In the event that a query
   could be made to return the root node, this allows the `parentProperty`
-  of that root node to be returned within results.
+  of that root node to be returned within results. This may be a string
+  property name or a numeric array index.
 - ***callback*** (**default: (none)**) - If supplied, a callback will be
   called immediately upon retrieval of an end point value. The three arguments
   supplied will be the value of the payload (according to `resultType`),
@@ -225,8 +226,9 @@ evaluate method (as the first argument) include:
 
 ### Class properties and methods
 
-- ***JSONPath.cache*** - Exposes the cache object for those who wish
-  to preserve and reuse it for optimization purposes.
+- ***JSONPath.clearCache()*** - Clears the internally cached parsed paths and
+  compiled scripts. Cache contents are not exposed; call this method when
+  cache invalidation is needed.
 - ***JSONPath.toPathArray(pathAsString)*** - Accepts a normalized or
   unnormalized path as string and converts to an array: for
   example, `['$', 'aProperty', 'anotherProperty']`.
